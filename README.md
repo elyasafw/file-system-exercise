@@ -5,3 +5,4 @@
 
 ## Reading and writing files ##
 1. Added practice number 1
+2. Added practice number 2
