@@ -1,0 +1,1 @@
+"This is an example Python file for exercise number 6 to practice reading and writing files, part 2."

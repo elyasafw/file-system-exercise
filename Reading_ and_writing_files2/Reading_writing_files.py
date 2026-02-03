@@ -1,4 +1,4 @@
-import shutil, string
+import shutil, string, os
 
 
 #1
@@ -66,3 +66,43 @@ def count_exact_word(file_name, word_to_find):
 
 word_in_readme = count_exact_word(r"../README.md", "system")
 print(word_in_readme)
+
+
+#6
+def file_conversion(origin_file):
+    temp_tuple = os.path.splitext(origin_file)    # פונקציה המקבלת מחרוזת נתיב/שם קובץ ומחזירה חלוקה של צד שמאל וימין של הנקודה בסוף הטקסט כטאפל
+    base_name = temp_tuple[0]
+    new_filename = base_name + ".txt"
+    with open(origin_file, 'r', encoding='utf-8') as source:
+        content = source.read()
+    with open(new_filename, 'w', encoding='utf-8') as target:
+        target.write(content)
+        
+file_conversion(r"./example.py")
+
+
+#7
+def replace_text(file_name, old_text, new_text):
+    with open(file_name, 'r', encoding='utf-8') as file:
+        content = file.read()
+    new_content = content.replace(old_text, new_text)
+    with open(file_name, 'w', encoding='utf-8') as file:
+        file.write(new_content)
+
+replace_text(r"./example.py", "This is an example Python file for exercise number 6 to", "This is the result of exercise number 7 for")
+
+
+#8
+def adding_lines(file_name, lines):
+    with open(file_name, 'a+', encoding='utf-8') as file:
+        file.seek(0, 2)     # פונקציה המזיזה את הסמן בתוך הקובץ (המספר 2 מייצג סוף הקובץ)
+        if file.tell() > 0:     # פונקציה שמחזירה את מספר התווים שהזמן עבר מתחילת הקובץ
+            file.seek(file.tell() - 1)
+            if file.read(1) != '\n':
+                file.write('\n')
+        for line in lines:
+            file.write(line + '\n')
+
+
+new_lines = ["line 1", "line 2", "line 3"]
+adding_lines(r"./example.txt", new_lines)
