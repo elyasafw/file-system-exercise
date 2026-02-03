@@ -3,6 +3,9 @@
 ## Filesystem exercis ##
 1. Added a basic practice file for using the file system
 
-## Reading and writing files ##
+## Reading and writing files part 1##
 1. Added practice number 1
 2. Added practice number 2
+
+## Reading and writing files part 2##
+1. Added reading and writing exercise
